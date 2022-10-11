@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+<body>
+{% if reservations %}
+  <table style="width:100%">
+    <tr>
+      <th>Rental_name</th>
+      <th>ID</th>
+      <th>Checkin</th>
+      <th>Checkout</th>
+      <th>Previous reservation ID</th>
+    </tr>
+    {% for reservation in reservations %}
+      <tr>
+        <td>{{ reservation.rental.name }}</td>
+        <td>{{ reservation.id }}</td>
+        <td>{{ reservation.checkin }}</td>
+        <td>{{ reservation.checkout }}</td>
+        <td>{{ reservation.previous_reservation_id }}</td>
+{#        <td>{{ previous_reservation_id }}</td>#}
+      </tr>
+    {% endfor %}
+  </table>
+{% else %}
+  <p>No reservations are available.</p>
+{% endif %}
+</body>
+</html>
+
